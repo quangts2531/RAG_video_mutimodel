@@ -1,0 +1,52 @@
+# ============================================
+# requirements.txt — Auto-generated from source
+# Project: muti_model (video encoder pipeline)
+# ============================================
+
+# Deep Learning framework
+torch
+torchvision
+
+# Computer Vision
+opencv-python                #
+
+# Image processing
+Pillow
+
+# Numerical computing
+numpy
+
+# Video processing
+moviepy
+
+# Scene detection
+scenedetect[opencv]
+
+# Speech-to-text
+openai-whisper
+
+# Vision-language model (BLIP)
+salesforce-lavis
+
+# LLM inference (Ollama client)
+ollama
+
+# Serverless compute
+modal
+
+# ── FastAPI Backend ──────────────────────────────
+# API Framework
+fastapi
+uvicorn[standard]
+
+# Settings management
+pydantic-settings
+
+# Database ORM
+sqlalchemy
+
+# LangChain (used by chat.py Agent)
+langchain-community
+langchain-huggingface
+langchain-core
+qdrant-client

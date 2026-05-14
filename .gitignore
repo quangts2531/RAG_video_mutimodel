@@ -1,0 +1,11 @@
+dataset/MMBench-Video/unwrap
+dataset/MMBench-Video/extract_media
+dataset/MMBench-Video/video_pkl
+
+frame
+
+# FastAPI Backend
+.env
+*.db
+__pycache__/
+*.pyc
