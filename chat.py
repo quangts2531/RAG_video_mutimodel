@@ -1,4 +1,5 @@
 import json
+import os
 # pyrefly: ignore [missing-import]
 from langchain_qdrant import QdrantVectorStore
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -11,10 +12,16 @@ from ollama import chat
 
 class Agent():
     def __init__(self):
-        self.embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+        embedding_model = os.environ.get("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
+        self.embeddings = HuggingFaceEmbeddings(model_name=embedding_model)
         self.documents = []
-        text_document_path = "result_document.json"
-        with open(text_document_path, "r+", encoding="utf-8") as document_file:
+
+        # Resolve document path: check Docker volume mount first, then local
+        doc_filename = os.environ.get("DOCUMENT_PATH", "result_document.json")
+        docker_path = os.path.join("/app/data", doc_filename)
+        text_document_path = docker_path if os.path.exists(docker_path) else doc_filename
+
+        with open(text_document_path, "r", encoding="utf-8") as document_file:
             old_data = json.load(document_file)
 
         for i,video_descrip in enumerate(old_data):

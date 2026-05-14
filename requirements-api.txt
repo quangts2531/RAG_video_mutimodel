@@ -1,0 +1,28 @@
+# ============================================
+# requirements-api.txt — Dependencies for RAG API runtime only
+# Excludes heavy ML libraries (PyTorch, Whisper, BLIP) used by
+# the offline video encoder pipeline.
+# ============================================
+
+# ── LLM inference (Ollama client) ────────────────────────────────
+ollama
+
+# ── FastAPI Backend ──────────────────────────────────────────────
+fastapi
+uvicorn[standard]
+
+# ── Settings management ──────────────────────────────────────────
+pydantic-settings
+
+# ── Database ORM ─────────────────────────────────────────────────
+sqlalchemy
+
+# ── LangChain (used by chat.py Agent) ────────────────────────────
+langchain-community
+langchain-huggingface
+langchain-qdrant
+langchain-core
+qdrant-client
+
+# ── Sentence Transformers (for HuggingFace embeddings) ───────────
+sentence-transformers

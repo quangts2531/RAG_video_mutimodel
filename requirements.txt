@@ -48,5 +48,6 @@ sqlalchemy
 # LangChain (used by chat.py Agent)
 langchain-community
 langchain-huggingface
+langchain-qdrant
 langchain-core
 qdrant-client
